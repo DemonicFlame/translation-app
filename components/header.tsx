@@ -2,10 +2,39 @@ import { SignInButton, UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useId } from "react";
+import React, { useEffect, useState } from "react";
+// import DarkModeButton from "./DarkModeButton";
+// import UserStatus from "./userStatus";
+// import { getUserStatus } from "./getUserStatus";
 
 function Header() {
   const { userId } = auth();
+  // const userId = await getUserStatus();
+
+  // const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // useEffect(() => {
+  //   const savedTheme = localStorage.getItem("theme");
+  //   if (savedTheme === "dark") {
+  //     document.documentElement.classList.add("dark");
+  //     setIsDarkMode(true);
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //     setIsDarkMode(false);
+  //   }
+  // }, []);
+
+  // const toggleDarkMode = () => {
+  //   if (isDarkMode) {
+  //     document.documentElement.classList.remove("dark");
+  //     localStorage.setItem("theme", "light");
+  //   } else {
+  //     document.documentElement.classList.add("dark");
+  //     localStorage.setItem("theme", "dark");
+  //   }
+  //   setIsDarkMode(!isDarkMode);
+  // };
+
   return (
     <header className="flex items-center justify-between px-8 border-b mb-5">
       <div className="flex items-center justify-center h-20 overflow-hidden">
@@ -19,13 +48,21 @@ function Header() {
           />
         </Link>
       </div>
-      {userId ? (
-        <div>
+      <div className="flex items-center gap-4">
+        {/* <button
+          onClick={toggleDarkMode}
+          className="bg-secondary text-white p-2 rounded-md"
+        >
+          {isDarkMode ? "Light Mode" : "Dark Mode"}
+        </button> */}
+        {/* <DarkModeButton /> */}
+        {userId ? (
           <UserButton />
-        </div>
-      ) : (
-        <SignInButton fallbackRedirectUrl="/translate" mode="modal" />
-      )}
+        ) : (
+          <SignInButton fallbackRedirectUrl="/translate" mode="modal" />
+        )}
+        {/* <UserStatus userId={userId} /> */}
+      </div>
     </header>
   );
 }
