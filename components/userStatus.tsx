@@ -2,7 +2,7 @@
 import { SignInButton, UserButton } from "@clerk/nextjs";
 // import { auth } from "@clerk/nextjs/server";
 
-export default function UserStatus({ userId }: { userId: String | null }) {
+export default function UserStatus({ userId }: { userId: string | null }) {
   // const { userId } = auth();
 
   return userId ? (
