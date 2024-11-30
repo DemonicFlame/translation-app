@@ -2,7 +2,7 @@ import { SignInButton, UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import DarkModeButton from "./DarkModeButton";
 // import UserStatus from "./userStatus";
 // import { getUserStatus } from "./getUserStatus";
